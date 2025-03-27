@@ -10,7 +10,7 @@ let h2 = document.querySelector("h2");
 
 let colors = ["red", "blue", "green", "yellow"];
 
-// Start or restart the game when clicking on a button
+
 btns.forEach((btn) => {
     btn.addEventListener("click", () => {
         if (!started) {
@@ -28,7 +28,7 @@ function startGame() {
     nextSequence();
 }
 
-// Function to generate next sequence
+
 function nextSequence() {
     userSeq = [];
     level++;
@@ -36,14 +36,14 @@ function nextSequence() {
     let randomColor = colors[Math.floor(Math.random() * 4)];
     gameSeq.push(randomColor);
     
-    // Flash effect for sequence display
+   
     setTimeout(() => {
         let btn = document.querySelector(`.${randomColor}`);
         flashButton(btn);
     }, 500);
 }
 
-// Handling user clicks
+
 btns.forEach((btn) => {
     btn.addEventListener("click", (event) => {
         if (!started) return;
@@ -51,14 +51,14 @@ btns.forEach((btn) => {
         let userColor = event.target.classList[1];
         userSeq.push(userColor);
         
-        // Flash effect for user clicks
+        
         flashButton(event.target);
         
         checkAnswer(userSeq.length - 1);
     });
 });
 
-// Function to check user's input
+
 function checkAnswer(index) {
     if (userSeq[index] === gameSeq[index]) {
         if (userSeq.length === gameSeq.length) {
@@ -69,7 +69,7 @@ function checkAnswer(index) {
     }
 }
 
-// Game over function
+
 function gameOver() {
     if (level > highScore) {
         highScore = level - 1;
@@ -85,7 +85,7 @@ function gameOver() {
     }, 600);
 }
 
-// Function to flash button
+
 function flashButton(btn) {
     btn.style.boxShadow = `0px 0px 40px white, 0px 0px 60px ${btn.classList[1]}`;
     setTimeout(() => {
