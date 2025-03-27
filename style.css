@@ -1,0 +1,38 @@
+body{
+    align-items: center;
+    text-align:center;
+    background-color: rgb(244, 216, 179);
+}
+.container{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+.btn{
+    width:200px;
+    height:200px;
+    border-radius:20%;
+    margin:8px 10px;
+    border:2px solid black;
+}
+.btn:hover{
+    cursor:grab;
+}
+.red{
+    background-color: rgb(227, 84, 84);
+}
+.blue{
+    background-color: rgb(80, 80, 241);
+}
+.green{
+    background-color: rgb(102, 209, 102);
+}
+.yellow{
+    background-color: rgb(247, 247, 104);
+}
+footer{
+    margin-top:30px;
+}
+h2{
+    margin-left: 3px;
+}
