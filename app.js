@@ -8,15 +8,13 @@ let btns = document.querySelectorAll(".btn");
 let h3 = document.querySelector("h3");
 let h2 = document.querySelector("h2");
 
-let colors = ["red", "blue", "green", "yellow"];
-
+let colors = ["red", "blue", "green", "yellow"]
 
 btns.forEach((btn) => {
     btn.addEventListener("click", () => {
         if (!started) {
             setTimeout(startGame, 500);
-        }
-    });
+        } });
 });
 
 function startGame() {
@@ -28,22 +26,18 @@ function startGame() {
     nextSequence();
 }
 
-
 function nextSequence() {
     userSeq = [];
     level++;
     h3.innerText = `Level ${level}`;
     let randomColor = colors[Math.floor(Math.random() * 4)];
     gameSeq.push(randomColor);
-    
    
     setTimeout(() => {
         let btn = document.querySelector(`.${randomColor}`);
         flashButton(btn);
     }, 500);
 }
-
-
 btns.forEach((btn) => {
     btn.addEventListener("click", (event) => {
         if (!started) return;
@@ -57,8 +51,6 @@ btns.forEach((btn) => {
         checkAnswer(userSeq.length - 1);
     });
 });
-
-
 function checkAnswer(index) {
     if (userSeq[index] === gameSeq[index]) {
         if (userSeq.length === gameSeq.length) {
@@ -68,7 +60,6 @@ function checkAnswer(index) {
         gameOver();
     }
 }
-
 
 function gameOver() {
     if (level > highScore) {
@@ -84,7 +75,6 @@ function gameOver() {
         started = false;
     }, 600);
 }
-
 
 function flashButton(btn) {
     btn.style.boxShadow = `0px 0px 40px white, 0px 0px 60px ${btn.classList[1]}`;
